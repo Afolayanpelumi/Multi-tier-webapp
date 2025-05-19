@@ -12,7 +12,7 @@ This project demonstrates deploying a multi-tier Flask web application on AWS us
 
 ## Architecture Diagram
 
-![Architecture](architecture.png)
+![Architecture](architecture)
 
 ---
 
@@ -119,11 +119,11 @@ terraform apply
 
 ### ✅ Flask App Homepage
 
-![Flask App Homepage](assets/flask-app-home.png)
+![Flask App Homepage](assets/flask-app-home)
 
 ### 👥 Visitor Tracking
 
-![Visitor Tracking](assets/flask-app-visitors.png)
+![Visitor Tracking](assets/flask-app-visitors)
 
 ## License
 
