@@ -1,101 +1,96 @@
-# Multi-Tier Web Application on AWS using Terraform
-![Terraform](https://img.shields.io/badge/IaC-Terraform-623CE4?logo=terraform)
-![AWS](https://img.shields.io/badge/Cloud-AWS-FF9900?logo=amazon-aws)
-![Flask](https://img.shields.io/badge/Backend-Flask-000000?logo=flask)
-![RDS](https://img.shields.io/badge/Database-AWS_RDS-527FFF?logo=amazonrds)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+# 🏗️ Multi-Tier Web Application on AWS (Terraform + Flask + RDS + ALB)
 
-This project demonstrates deploying a multi-tier Flask web application on AWS using Terraform, including an Application Load Balancer (ALB), EC2 instance, private RDS MySQL database, and subnets across two Availability Zones.
+![Terraform](https://img.shields.io/badge/IaC-Terraform-blueviolet)
+![AWS](https://img.shields.io/badge/Cloud-AWS-orange)
+![Flask](https://img.shields.io/badge/Backend-Flask-lightblue)
+![RDS](https://img.shields.io/badge/Database-RDS-green)
+![LoadBalancer](https://img.shields.io/badge/ALB-Application--LB-yellow)
 
 ---
 
-## Architecture Diagram
+## 📚 Project Overview
 
-![Architecture](architecture)
+This project deploys a **multi-tier web application** on AWS using **Terraform** as the Infrastructure as Code (IaC) tool. The architecture includes:
 
----
+- A Flask application running on an EC2 instance in a public subnet.
+- An RDS MySQL database in private subnets.
+- An Application Load Balancer (ALB) distributing traffic.
+- A Bastion host for secure SSH access to private resources (optional phase).
 
-## Features
-
-* Flask web app deployed on EC2
-* MySQL RDS backend in private subnets
-* Application Load Balancer (ALB) in front of EC2 instance
-* Public/private subnets across 2 AZs
-* Bastion host optional for RDS access (not included in final build)
-* Terraform-managed infrastructure
+All infrastructure and provisioning steps are fully automated using Terraform.
 
 ---
 
-## Technologies Used
+## 📊 Architecture
 
-* AWS EC2, RDS, ALB, VPC, Subnets, Security Groups
-* Python Flask
-* Terraform
+![Architecture Diagram](Architecture.png)
 
 ---
 
-## File Structure
+## 🔧 Features
 
-```bash
-multi-tier-webapp/
-├── terraform/
-│   ├── main.tf
-│   ├── variables.tf
-│   ├── outputs.tf
-│   ├── provider.tf
-│   └── user-data/
-│       └── flask.sh
-├── .gitignore
-├── LICENSE
-├── README.md
-└── architecture.png
-```
+- 🔁 Auto-provisioned network (VPC, subnets, route tables, etc.)
+- 🧠 Flask app with visitor tracking logic using RDS
+- 🐘 RDS MySQL for persistent storage
+- 🌐 ALB for high availability routing
+- 🔐 Security Groups for strict access control
+- 🛠️ Modular and reusable Terraform code
+- 🧪 User-data script to bootstrap EC2 on launch
 
 ---
 
-## Setup Instructions
+## 🚀 Technologies Used
+
+| Tool         | Purpose                           |
+|--------------|-----------------------------------|
+| Terraform    | Infrastructure provisioning       |
+| AWS EC2      | Hosting Flask web server          |
+| AWS RDS      | Backend MySQL database            |
+| Flask        | Web framework                     |
+| ALB          | Load balancing between instances  |
+| Bash         | EC2 initialization via user-data  |
+
+---
+
+## 📸 Screenshots
+
+### ✅ Home Page
+Shows successful Flask app + RDS connection
+
+![Home](Assets/Flask-app-home.PNG)
+
+### 🧾 Visitor Tracker
+Logs IP and browser info to MySQL
+
+![Visitors](Assets/flask-app-visitors.PNG)
+
+---
+
+## 🪛 Usage
 
 ### Prerequisites
 
-* AWS CLI authenticated
-* Terraform installed
-* SSH key pair created in AWS
+- AWS CLI configured with access keys
+- Terraform CLI installed
+- Key Pair created in AWS EC2 (e.g., `terraform-key`)
+- Update `terraform/variables.tf` with your values (e.g., RDS password, key name)
 
 ### Steps
 
-1. **Update variables** in `terraform/variables.tf`:
-
-   * `key_name` = your EC2 key pair name
-   * `db_password` = a secure password
-
-2. **Run Terraform**
-
 ```bash
-cd terraform
+cd terraform/
 terraform init
-terraform plan
 terraform apply
 ```
 
-3. **Access the application**
+After deployment, visit the ALB DNS output to test the app:
 
-   * Visit the ALB DNS (found in output `alb_dns_name`)
-   * `/` route returns confirmation message
-   * `/visitors` displays visitor tracking table
-
----
-
-## Outputs
-
-* `alb_dns_name`: Public ALB address
-* `rds_endpoint`: RDS host
-* `rds_db_name`: MySQL database name
-* `rds_port`: 3306
-* `vpc_id`, subnet IDs: Networking components
+```
+Outputs:
+alb_dns_name = http://multi-tier-app-alb-xxxxxxxx.us-east-1.elb.amazonaws.com
+```
 
 ---
-
 ## Troubleshooting & Lessons Learned
 
 ### Common Errors We Encountered
@@ -112,25 +107,35 @@ terraform apply
 * Avoid duplicate resource blocks or variable names
 * Wait for EC2 and RDS to fully provision before testing
 * Confirm security groups allow traffic on port 5000 (EC2) and port 3306 (RDS)
+---
+
+## 📂 File Structure
+
+```
+multi-tier-webapp/
+├── Assets/                        # Screenshot images
+├── Terraform/                     # Terraform codebase
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   ├── provider.tf
+│   └── user-data/
+│       └── flask.sh               # Bash script to install Flask app
+├── Architecture.png              # AWS architecture diagram
+├── LICENSE
+├── .gitignore
+└── README.md
+```
 
 ---
 
-## 📸 Live Demo Screenshots
+## 🪪 License
 
-### ✅ Flask App Homepage
-
-![Flask App Homepage](assets/flask-app-home)
-
-### 👥 Visitor Tracking
-
-![Visitor Tracking](assets/flask-app-visitors)
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-## Author
+## ✍️ Author
 
-Alejandro Paguaga
+Roberto Cardenas – *Cloud Engineer Portfolio Project*  
+GitHub: [roberto-a-cardenas](https://github.com/roberto-a-cardenas)
